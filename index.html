@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="config.js?v=1"></script>
+<script src="config.js?v=2"></script>
 <style>
 :root {
   --bg: #050506;
@@ -649,7 +649,8 @@ $$(".js-preco-num").forEach(e => e.textContent = preco.toLocaleString("pt-BR"));
 $(".js-vip-ano").textContent = brl(vipAno) + " por ano";
 $(".js-vip-valor").innerHTML = brl(vipAno) + " <small>por ano</small>";
 $(".js-preco-plano").innerHTML = brl(preco) + " <small>por 2 anos</small>";
-$(".js-diferenca").textContent = brl(preco - vipAno);
+if (preco > vipAno) $(".js-diferenca").textContent = brl(preco - vipAno);
+else $(".conta-final").innerHTML = "Pelo <b>mesmo preço</b> de um ano de VIP, você ganha mais um ano inteiro, o app, o workshop e ainda leva alguém com você.";
 $(".js-barra-preco").textContent = brl(preco);
 $(".js-mes").textContent = "Dá " + brl(Math.round(preco / 24 * 100) / 100) + " por mês, pra duas pessoas";
 $(".js-final-txt").textContent = "2 anos de Comunidade VIP, APP, Workshop e mais um acesso pra quem você quiser, por " + brl(preco) + ".";
